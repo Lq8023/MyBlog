@@ -1,0 +1,19 @@
+{
+  "code": 1,
+  "data": {
+    "list": [
+      {
+        "imgName": "图1",
+        "imgUrl": "https://avatar.csdn.net/8/5/D/3_bocongbo.jpg"
+      },
+      {
+        "imgName": "图2",
+        "imgUrl": "https://avatar.csdn.net/8/5/D/3_bocongbo.jpg"
+      },
+      {
+        "imgName": "图3",
+        "imgUrl": "https://avatar.csdn.net/8/5/D/3_bocongbo.jpg"
+      }
+    ]
+  }
+}

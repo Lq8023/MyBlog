@@ -1,32 +1,45 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <main-header></main-header>
+    <Search></Search>
+    <div class="container">
+      <router-view />
     </div>
-    <router-view/>
+    <Footer></Footer>
   </div>
 </template>
-
+<script>
+import MainHeader from "components/MainHeader/MainHeader";
+import Search from "components/header/search";
+import Footer from "components/Footer/Footer";
+export default {
+  name: "app",
+  components: {
+    MainHeader,Search,Footer
+  },
+  mounted() {
+    //监听键盘按键事件
+    let self = this;
+    this.$nextTick(function() {
+      document.addEventListener("keyup", function(e) {
+        if (e.keyCode == 27) {
+          self.searchClick();
+        }
+      })
+    })
+  },
+  methods:{
+    searchClick(){
+      this.$store.state.isSearch = !this.$store.state.isSearch
+    }
+  }
+};
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+@import "./assets/css/base.css";
+.container {
+  margin-top: 130px;
+  width: 100%;
+  padding-bottom: 50px
 }
 </style>
